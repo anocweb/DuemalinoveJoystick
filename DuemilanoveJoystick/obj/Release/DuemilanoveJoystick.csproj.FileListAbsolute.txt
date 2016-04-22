@@ -1,0 +1,13 @@
+C:\Users\Clinton\Documents\Visual Studio 2015\Projects\DuemilanoveJoystick\DuemilanoveJoystick\bin\Release\DuemilanoveJoystick.exe.config
+C:\Users\Clinton\Documents\Visual Studio 2015\Projects\DuemilanoveJoystick\DuemilanoveJoystick\bin\Release\DuemilanoveJoystick.exe
+C:\Users\Clinton\Documents\Visual Studio 2015\Projects\DuemilanoveJoystick\DuemilanoveJoystick\bin\Release\DuemilanoveJoystick.pdb
+C:\Users\Clinton\Documents\Visual Studio 2015\Projects\DuemilanoveJoystick\DuemilanoveJoystick\bin\Release\vJoyInterfaceWrap.dll
+C:\Users\Clinton\Documents\Visual Studio 2015\Projects\DuemilanoveJoystick\DuemilanoveJoystick\obj\Release\DuemilanoveJoystick.Form1.resources
+C:\Users\Clinton\Documents\Visual Studio 2015\Projects\DuemilanoveJoystick\DuemilanoveJoystick\obj\Release\DuemilanoveJoystick.Properties.Resources.resources
+C:\Users\Clinton\Documents\Visual Studio 2015\Projects\DuemilanoveJoystick\DuemilanoveJoystick\obj\Release\DuemilanoveJoystick.csproj.GenerateResource.Cache
+C:\Users\Clinton\Documents\Visual Studio 2015\Projects\DuemilanoveJoystick\DuemilanoveJoystick\obj\Release\DuemilanoveJoystick.exe
+C:\Users\Clinton\Documents\Visual Studio 2015\Projects\DuemilanoveJoystick\DuemilanoveJoystick\obj\Release\DuemilanoveJoystick.pdb
+C:\Users\Clinton\Documents\Visual Studio 2015\Projects\DuemilanoveJoystick\DuemilanoveJoystick\obj\Release\DuemilanoveJoystick.csprojResolveAssemblyReference.cache
+D:\Source\Repos\DuemalinoveJoystick\DuemilanoveJoystick\bin\Release\DuemilanoveJoystick.exe.config
+D:\Source\Repos\DuemalinoveJoystick\DuemilanoveJoystick\obj\Release\DuemilanoveJoystick.exe
+D:\Source\Repos\DuemalinoveJoystick\DuemilanoveJoystick\obj\Release\DuemilanoveJoystick.pdb

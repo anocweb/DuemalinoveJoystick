@@ -1,0 +1,11 @@
+C:\Users\Clinton\AppData\Local\Temporary Projects\DuemilanoveJoystick\bin\Debug\DuemilanoveJoystick.exe.config
+C:\Users\Clinton\Documents\Visual Studio 2015\Projects\DuemilanoveJoystick\DuemilanoveJoystick\bin\Debug\DuemilanoveJoystick.exe.config
+C:\Users\Clinton\Documents\Visual Studio 2015\Projects\DuemilanoveJoystick\DuemilanoveJoystick\bin\Debug\DuemilanoveJoystick.exe
+C:\Users\Clinton\Documents\Visual Studio 2015\Projects\DuemilanoveJoystick\DuemilanoveJoystick\bin\Debug\DuemilanoveJoystick.pdb
+C:\Users\Clinton\Documents\Visual Studio 2015\Projects\DuemilanoveJoystick\DuemilanoveJoystick\bin\Debug\vJoyInterfaceWrap.dll
+C:\Users\Clinton\Documents\Visual Studio 2015\Projects\DuemilanoveJoystick\DuemilanoveJoystick\obj\Debug\DuemilanoveJoystick.csprojResolveAssemblyReference.cache
+C:\Users\Clinton\Documents\Visual Studio 2015\Projects\DuemilanoveJoystick\DuemilanoveJoystick\obj\Debug\DuemilanoveJoystick.Form1.resources
+C:\Users\Clinton\Documents\Visual Studio 2015\Projects\DuemilanoveJoystick\DuemilanoveJoystick\obj\Debug\DuemilanoveJoystick.Properties.Resources.resources
+C:\Users\Clinton\Documents\Visual Studio 2015\Projects\DuemilanoveJoystick\DuemilanoveJoystick\obj\Debug\DuemilanoveJoystick.csproj.GenerateResource.Cache
+C:\Users\Clinton\Documents\Visual Studio 2015\Projects\DuemilanoveJoystick\DuemilanoveJoystick\obj\Debug\DuemilanoveJoystick.exe
+C:\Users\Clinton\Documents\Visual Studio 2015\Projects\DuemilanoveJoystick\DuemilanoveJoystick\obj\Debug\DuemilanoveJoystick.pdb
