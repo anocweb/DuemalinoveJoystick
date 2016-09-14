@@ -30,105 +30,105 @@ namespace DuemilanoveJoystick
 
         private void serialConnect_Click(object sender, EventArgs e)
         {
-            serialPort1.BaudRate = int.Parse(serialBaud.Text);
-            serialPort1.PortName = list_SerialPorts.SelectedItem.ToString();
-            serialPort1.NewLine = "\n";
-            serialPort1.DataReceived += new SerialDataReceivedEventHandler(sp_DataReceived);
-            if (serialPort1.IsOpen)
+            if (serialConnect.Text == "Connect")
             {
-                serialPort1.Close();
-            }
-            try
-            {
-                serialPort1.Open();
-
-            }
-            catch (Exception ex) { MessageBox.Show(ex.Message); }
-
-            if (serialPort1.IsOpen)
-            {
-                serialConnect.Enabled = false;
-                serialDisconnect.Enabled = true;
-                list_SerialPorts.Enabled = false;
-                serialBaud.Enabled = false;
-                
-
-                // Create one joystick object and a position structure.
-                joystick = new vJoy();
-                iReport = new vJoy.JoystickState();
-
-                // Get the driver attributes (Vendor ID, Product ID, Version Number)
-                if (!joystick.vJoyEnabled())
+                serialPort1.BaudRate = int.Parse(serialBaud.Text);
+                serialPort1.PortName = list_SerialPorts.SelectedItem.ToString();
+                serialPort1.NewLine = "\n";
+                serialPort1.DataReceived += new SerialDataReceivedEventHandler(sp_DataReceived);
+                if (serialPort1.IsOpen)
                 {
-                    vjoy_status.Text = "vJoy driver not enabled";
+                    serialPort1.Close();
+                }
+                try
+                {
+                    serialPort1.Open();
 
                 }
-                else
+                catch (Exception ex) { MessageBox.Show(ex.Message); }
+
+                if (serialPort1.IsOpen)
                 {
-                    vjoy_status.Text = joystick.GetVJDStatus(id).ToString();
-                    vjoy_vendor.Text = joystick.GetvJoyManufacturerString();
-                    vjoy_product.Text = joystick.GetvJoyProductString();
-                    vjoy_version.Text = joystick.GetvJoySerialNumberString();
+                    list_SerialPorts.Enabled = false;
+                    serialBaud.Enabled = false;
+
+
+                    // Create one joystick object and a position structure.
+                    joystick = new vJoy();
+                    iReport = new vJoy.JoystickState();
+
+                    // Get the driver attributes (Vendor ID, Product ID, Version Number)
+                    if (!joystick.vJoyEnabled())
+                    {
+                        vjoy_status.Text = "vJoy driver not enabled";
+
+                    }
+                    else
+                    {
+                        vjoy_status.Text = joystick.GetVJDStatus(id).ToString();
+                        vjoy_vendor.Text = joystick.GetvJoyManufacturerString();
+                        vjoy_product.Text = joystick.GetvJoyProductString();
+                        vjoy_version.Text = joystick.GetvJoySerialNumberString();
+                    }
+
+                    axis_e_x.Text = joystick.GetVJDAxisExist(id, HID_USAGES.HID_USAGE_X).ToString();
+                    axis_e_y.Text = joystick.GetVJDAxisExist(id, HID_USAGES.HID_USAGE_Y).ToString();
+                    axis_e_rx.Text = joystick.GetVJDAxisExist(id, HID_USAGES.HID_USAGE_RX).ToString();
+                    axis_e_ry.Text = joystick.GetVJDAxisExist(id, HID_USAGES.HID_USAGE_RY).ToString();
+                    axis_e_rz.Text = joystick.GetVJDAxisExist(id, HID_USAGES.HID_USAGE_RZ).ToString();
+                    axis_e_s1.Text = joystick.GetVJDAxisExist(id, HID_USAGES.HID_USAGE_SL0).ToString();
+                    axis_e_s2.Text = joystick.GetVJDAxisExist(id, HID_USAGES.HID_USAGE_SL1).ToString();
+                    button_e.Text = joystick.GetVJDButtonNumber(id).ToString();
+                    cpov_e.Text = joystick.GetVJDContPovNumber(id).ToString();
+                    dpov_e.Text = joystick.GetVJDDiscPovNumber(id).ToString();
+
+                    UInt32 DllVer = 0, DrvVer = 0;
+                    bool match = joystick.DriverMatch(ref DllVer, ref DrvVer);
+                    if (match)
+                    {
+                        vjoy_dllver.Text = DllVer.ToString();
+                        vjoy_drvver.Text = DrvVer.ToString();
+                    }
+                    else
+                        vjoy_status.Text = "DLL MISMATCH";
+
+
+                    // Acquire the target
+                    if ((vjoy_status.Text == VjdStat.VJD_STAT_OWN.ToString()) || ((vjoy_status.Text == VjdStat.VJD_STAT_FREE.ToString()) && (!joystick.AcquireVJD(id))))
+                    {
+                        vjoy_status.Text = "Failed to acquire vJoy device";
+                        return;
+                    }
+                    else
+                        vjoy_status.Text = "Acquired: vJoy device";
+
+
+                    joystick.ResetVJD(id);
+                    serialConnect.Text = "Disconnect";
                 }
-
-                axis_e_x.Text = joystick.GetVJDAxisExist(id, HID_USAGES.HID_USAGE_X).ToString();
-                axis_e_y.Text = joystick.GetVJDAxisExist(id, HID_USAGES.HID_USAGE_Y).ToString();
-                axis_e_rx.Text = joystick.GetVJDAxisExist(id, HID_USAGES.HID_USAGE_RX).ToString();
-                axis_e_ry.Text = joystick.GetVJDAxisExist(id, HID_USAGES.HID_USAGE_RY).ToString();
-                axis_e_rz.Text = joystick.GetVJDAxisExist(id, HID_USAGES.HID_USAGE_RZ).ToString();
-                axis_e_s1.Text = joystick.GetVJDAxisExist(id, HID_USAGES.HID_USAGE_SL0).ToString();
-                axis_e_s2.Text = joystick.GetVJDAxisExist(id, HID_USAGES.HID_USAGE_SL1).ToString();
-                button_e.Text = joystick.GetVJDButtonNumber(id).ToString();
-                cpov_e.Text = joystick.GetVJDContPovNumber(id).ToString();
-                dpov_e.Text = joystick.GetVJDDiscPovNumber(id).ToString();
-
-                UInt32 DllVer = 0, DrvVer = 0;
-                bool match = joystick.DriverMatch(ref DllVer, ref DrvVer);
-                if (match)
-                {
-                    vjoy_dllver.Text = DllVer.ToString();
-                    vjoy_drvver.Text = DrvVer.ToString();
-                }
-                else
-                    vjoy_status.Text = "DLL MISMATCH";
-
-
-                // Acquire the target
-                if ((vjoy_status.Text == VjdStat.VJD_STAT_OWN.ToString()) || ((vjoy_status.Text == VjdStat.VJD_STAT_FREE.ToString()) && (!joystick.AcquireVJD(id))))
-                {
-                    vjoy_status.Text = "Failed to acquire vJoy device";
-                    return;
-                }
-                else
-                    vjoy_status.Text = "Acquired: vJoy device";
-
-
-                joystick.ResetVJD(id);
-            }
-        }
-
-
-
-
-
-
-        private void serialDisconnect_Click(object sender, EventArgs e)
-        {
-            serialDisconnect.Enabled = false;
-            serialConnect.Enabled = true;
-            serialPort1.Close();
-            if (serialPort1.IsOpen == false)
+            } else
             {
                 serialConnect.Enabled = true;
-                serialDisconnect.Enabled = false;
-                list_SerialPorts.Enabled = true;
-                serialBaud.Enabled = true;
-            }
-            else
-            {
-                MessageBox.Show("Error disconnecting");
+                serialPort1.Close();
+                if (serialPort1.IsOpen == false)
+                {
+                    serialConnect.Enabled = true;
+                    list_SerialPorts.Enabled = true;
+                    serialBaud.Enabled = true;
+                    serialConnect.Text = "Connect";
+                }
+                else
+                {
+                    MessageBox.Show("Error disconnecting");
+                }
             }
         }
+
+
+
+
+
+        
 
         private void Form1_Load(object sender, EventArgs e)
         {
@@ -160,7 +160,7 @@ namespace DuemilanoveJoystick
             }
             catch (Exception ex)
             {
-
+                MessageBox.Show(ex.Message);
             }
 
         }
@@ -344,14 +344,18 @@ namespace DuemilanoveJoystick
             if (ports.Length == 0)
             {
                 list_SerialPorts.Text = "No Ports";
+                serialBaud.Text = "";
                 list_SerialPorts.Enabled = false;
+                serialBaud.Enabled = false;
+                serialConnect.Enabled = false;
             }
             else
-                list_SerialPorts.Items.AddRange(ports);
-            list_SerialPorts.Enabled = true;
-            list_SerialPorts.SelectedIndex = 0;
             {
-
+                list_SerialPorts.Items.AddRange(ports);
+                serialBaud.Text = "9600";
+                list_SerialPorts.Enabled = true;
+                serialBaud.Enabled = true;
+                serialConnect.Enabled = true;
             }
         }
 

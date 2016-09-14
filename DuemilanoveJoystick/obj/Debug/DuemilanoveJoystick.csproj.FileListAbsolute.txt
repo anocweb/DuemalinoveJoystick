@@ -9,3 +9,6 @@ C:\Users\Clinton\Documents\Visual Studio 2015\Projects\DuemilanoveJoystick\Duemi
 C:\Users\Clinton\Documents\Visual Studio 2015\Projects\DuemilanoveJoystick\DuemilanoveJoystick\obj\Debug\DuemilanoveJoystick.csproj.GenerateResource.Cache
 C:\Users\Clinton\Documents\Visual Studio 2015\Projects\DuemilanoveJoystick\DuemilanoveJoystick\obj\Debug\DuemilanoveJoystick.exe
 C:\Users\Clinton\Documents\Visual Studio 2015\Projects\DuemilanoveJoystick\DuemilanoveJoystick\obj\Debug\DuemilanoveJoystick.pdb
+E:\GitRepos\DuemalinoveJoystick\DuemilanoveJoystick\bin\Debug\DuemilanoveJoystick.exe.config
+E:\GitRepos\DuemalinoveJoystick\DuemilanoveJoystick\obj\Debug\DuemilanoveJoystick.exe
+E:\GitRepos\DuemalinoveJoystick\DuemilanoveJoystick\obj\Debug\DuemilanoveJoystick.pdb
