@@ -26,23 +26,22 @@ uint32_t ulELE_Start;
 uint32_t ulTHR_Start;
 uint32_t ulRUD_Start;
 uint32_t ulAUX_Start;
-  int minJoy = 1076;
-  int divJoy = 38;
-  int maxJoy = 1936;
-  int count = 0;
-  String output = "";
+
+int sampleRate = 10;
+int samples = 0;
+String output = "";
   
-  int16_t Rud = 0;
-  int16_t Ail = 0;
-  int16_t Thr = 0;
-  int16_t Ele = 0;
-  int16_t Aux = 0;
- 
+int16_t sampleRud = 0;
+int16_t sampleAil = 0;
+int16_t sampleThr = 0;
+int16_t sampleEle = 0;
+int16_t sampleAux = 0;
+
 void setup()
 {
-  Serial.begin(9600);
+  Serial.begin(9600); // SERIALLLLLLLLL.... 
 
-  
+  // setup the interrupt pins
   PCintPort::attachInterrupt(AIL_IN_PIN, isr_AIL, CHANGE); 
   PCintPort::attachInterrupt(ELE_IN_PIN, isr_ELE, CHANGE); 
   PCintPort::attachInterrupt(THR_IN_PIN, isr_THR, CHANGE);
@@ -63,9 +62,7 @@ void loop()
   if (bUpdateFlagsShared)
   {
     noInterrupts();
- 
     bUpdateFlags = bUpdateFlagsShared;
- 
     if (bUpdateFlags & AIL_FLAG)
     {
       unAIL_In = unAIL_InShared;
@@ -88,31 +85,29 @@ void loop()
     }
  
     bUpdateFlagsShared = 0;
- 
-     bUpdateFlags = 0;
+    bUpdateFlags = 0;
     interrupts();
   
-    if (count == 10) {
-      output = String(Thr/10) + ",";
-      output += String(Rud/10) + ",";
-      output += String(Ele/10) + ",";
-      output += String(Ail/10) + ",";
-      output += String(Aux/10) + "\n";
-    Serial.print(output);
-    count = 0;
-    Rud = 0;
-    Ail = 0;
-    Thr = 0;
-    Ele = 0;
-    Aux = 0;
-    output = "";
+    if (samples == sampleRate) { // build the output string if enough samples have been collected
+      output = String(sampleThr/sampleRate) + ","; 
+      output += String(sampleRud/sampleRate) + ",";
+      output += String(sampleEle/sampleRate) + ",";
+      output += String(sampleAil/sampleRate) + ",";
+      output += String(sampleAux/sampleRate) + "\n";
+      Serial.print(output); // send the output
+      samples = 0; // reset all the variables
+      sampleRud = 0;
+      sampleAil = 0;
+      sampleThr = 0;
+      sampleEle = 0;
+      sampleAux = 0;
     } else {
-      Thr+=unTHR_In;
-      Rud+=unRUD_In;
-      Ele+=unELE_In;
-      Ail+=unAIL_In;
-      Aux+=unAUX_In;
-      count++;
+      sampleThr+=unTHR_In; // add samples to the collections
+      sampleRud+=unRUD_In;
+      sampleEle+=unELE_In;
+      sampleAil+=unAIL_In;
+      sampleAux+=unAUX_In;
+      samples++;
     }
   }  
 }
