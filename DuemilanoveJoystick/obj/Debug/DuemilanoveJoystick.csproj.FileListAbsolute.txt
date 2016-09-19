@@ -12,3 +12,9 @@ C:\Users\Clinton\Documents\Visual Studio 2015\Projects\DuemilanoveJoystick\Duemi
 E:\GitRepos\DuemalinoveJoystick\DuemilanoveJoystick\bin\Debug\DuemilanoveJoystick.exe.config
 E:\GitRepos\DuemalinoveJoystick\DuemilanoveJoystick\obj\Debug\DuemilanoveJoystick.exe
 E:\GitRepos\DuemalinoveJoystick\DuemilanoveJoystick\obj\Debug\DuemilanoveJoystick.pdb
+E:\GitRepos\DuemalinoveJoystick\DuemilanoveJoystick\bin\Debug\DuemilanoveJoystick.exe
+E:\GitRepos\DuemalinoveJoystick\DuemilanoveJoystick\bin\Debug\DuemilanoveJoystick.pdb
+E:\GitRepos\DuemalinoveJoystick\DuemilanoveJoystick\obj\Debug\DuemilanoveJoystick.csprojResolveAssemblyReference.cache
+E:\GitRepos\DuemalinoveJoystick\DuemilanoveJoystick\obj\Debug\DuemilanoveJoystick.MainForm.resources
+E:\GitRepos\DuemalinoveJoystick\DuemilanoveJoystick\obj\Debug\DuemilanoveJoystick.Properties.Resources.resources
+E:\GitRepos\DuemalinoveJoystick\DuemilanoveJoystick\obj\Debug\DuemilanoveJoystick.csproj.GenerateResource.Cache

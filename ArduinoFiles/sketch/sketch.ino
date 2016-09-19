@@ -5,8 +5,7 @@
 #define THR_IN_PIN 2
 #define RUD_IN_PIN 5
 #define AUX_IN_PIN 6
- 
- 
+
 #define AIL_FLAG 1
 #define ELE_FLAG 2
 #define THR_FLAG 4
